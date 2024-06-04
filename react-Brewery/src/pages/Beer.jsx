@@ -4,11 +4,10 @@ import BrewCards from './BrewCards'
 
 export default function Beer() {
 
-    return(
+    return (
         <>
-        <DropDownContainer></DropDownContainer>
-        <BrewCards brew_type="beer"></BrewCards>
-        <div>Mead</div>
+            <DropDownContainer></DropDownContainer>
+            <BrewCards brew_type="beer"></BrewCards>
         </>
     )
 }

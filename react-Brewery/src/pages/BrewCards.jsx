@@ -10,7 +10,13 @@ export default function brewCards(prop) {
 
     useEffect(() => {
         fetch(`http://localhost:3001/api/brews?type=${prop.brew_type}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    setIsError(true)
+                    console.log(response);
+                } else {
+                    return response.json()
+            }})
             .then(data => {
                 setLoading(false);
                 setData(data);
@@ -22,13 +28,15 @@ export default function brewCards(prop) {
                 setIsError(true);
             })
     }, []);
+
     if (loading) {
         return ("Loading data from database")
     }
-    console.log(data);
+
+    //console.log(data);
     let addedPastBrewsDiv = false;
 
-    if (!isError) {
+    if (isError || data === null) {
         return (<h1>Sorry No Brews on Tap Here</h1>)
     } else {
         return (
@@ -36,7 +44,6 @@ export default function brewCards(prop) {
                 <h1>Currently on tap</h1>
                 {
                     data.map((brew, index) => {
-                        console.log(brew.brew_avalibility)
                         if (!addedPastBrewsDiv && !brew.brew_avalibility) {
                             addedPastBrewsDiv = true;
                             return (
