@@ -1,0 +1,17 @@
+.dropdown-container{
+  display: flex;
+  flex-basis: row;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.container:hover {
+    cursor: pointer;
+}
+.sub-container:hover {
+   cursor: pointer;
+}
+
