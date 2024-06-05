@@ -8,6 +8,7 @@ class eventsManager {
     }
 
     async getEventObject() {
+        this.data = [];
         await this.#findFiles();
         this.#handleRecurring(this.data);
         this.#sortByDate(this.data);

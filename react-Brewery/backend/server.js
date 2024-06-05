@@ -16,8 +16,6 @@ function main() {
 
     async function initializeEvents() {
         const events = await m_eventMgr.getEventObject();
-        //console.log("Server Side")
-        //console.log(events);
         return events
     }
 
