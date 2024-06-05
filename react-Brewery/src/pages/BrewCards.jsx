@@ -8,7 +8,15 @@ export default function brewCards(prop) {
     const [loading, setLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
+
+
     useEffect(() => {
+        fetch('http://localhost:3001/api/brews')
+            .then(response => {
+                console.log(response);
+            })
+
+
         fetch(`http://localhost:3001/api/brews?type=${prop.brew_type}`)
             .then(response => {
                 if (!response.ok) {

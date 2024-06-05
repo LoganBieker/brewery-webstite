@@ -10,6 +10,7 @@ import './App.css'
 import HomePage from './HomePage';
 import TheBrewery from './pages/TheBrewery';
 import Beer from './pages/Beer'
+import OnTap from './pages/OnTap'
 import ContactUs from './pages/ContactUs.jsx';
 import Location from './pages/Location/Location.jsx';
 import Mead from './pages/Mead.jsx';
@@ -23,9 +24,10 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/TheBrewery' element={<TheBrewery />}></Route>
-        <Route path='/Beer' element={<Beer />}></Route>
         <Route path='/ContactUs' element={<ContactUs />}></Route>
         <Route path='/Location/Location' element={<Location />}></Route>
+        <Route path='/OnTap' element={<OnTap />}></Route>
+        <Route path='/Beer' element={<Beer />}></Route>
         <Route path='/Mead' element={<Mead />}></Route>
         <Route path='/Other' element={<Other />}></Route>
         <Route path='/Events' element={<Events />}></Route>

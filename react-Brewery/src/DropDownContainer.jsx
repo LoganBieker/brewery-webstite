@@ -11,6 +11,7 @@ function HomePage() {
 
 
     const ourBrewsSection = [
+        { name: "OnTap", path: "/OnTap"},
         { name: "Beer", path: "/Beer"},
         { name: "Mead", path: "/Mead"},
         { name: "Other", path: "/Other"},

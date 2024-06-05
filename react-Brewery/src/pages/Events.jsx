@@ -5,6 +5,7 @@ export default function Events() {
 
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isError, setIsError] = useState(false); 
     useEffect(() => {
         fetch('http://localhost:3001/api/data')
             .then(response => response.json())
@@ -16,15 +17,30 @@ export default function Events() {
             .catch(error => {
                 console.error('Error fetching data:', error)
                 setLoading(false);
+                setIsError(true);
             });
     }, []);
 
     if (loading) {
-        return <div>Loading data...</div>
-    }
+        return (
+        <>
+        <DropDownContainer></DropDownContainer>
+        <div>Loading data...</div>
+        </>
+    )}
+
 
     const currentDate = new Date()
     let eventsExpired = false;
+    
+    if (!data | isError) {
+        return(
+            <>
+            <DropDownContainer></DropDownContainer>
+            <h1>Sorry No Upcoming Events</h1>
+            </>
+        )
+    }
     return (
         <div>
             <DropDownContainer></DropDownContainer>            
