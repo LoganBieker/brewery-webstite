@@ -6,6 +6,8 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  
   margin: 10px;
 }
 .container:hover {
@@ -14,4 +16,104 @@
 .sub-container:hover {
    cursor: pointer;
 }
+
+.home-button-image {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.home-button-container {
+ display: inline-block; 
+ border: none;
+ max-width: 100%;
+ max-height: 100%;
+width: 50px;
+height: 50px;
+}
+
+/* Styles the container which holds the dropdown */
+.container {
+    position: relative; /* Important for positioning the submenu absolutely within this container */
+    width: 200px; /* Adjust width as necessary */
+}
+
+/* Styles the element that shows the dropdown on hover */
+.drop-menu-select {
+    display: block;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    max-height: 50px;
+}
+
+/* Initially hides the dropdown content */
+.sub-container {
+    display: none;
+    position: absolute;
+    top: 100%; /* Positions the dropdown right below the dropdown trigger */
+    left: 0;
+    width: 100%; /* Makes the dropdown as wide as its parent by default */
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    z-index: 1000; /* Ensures the dropdown appears on top of other content */
+}
+
+/* Styles the list inside the dropdown */
+.sub-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sub-container li {
+    margin: 8px, 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sub-container li:last-child {
+    border-bottom: none;
+}
+
+.sub-container li:hover {
+    background-color: #f7f7f7;
+}
+
+/* Shows the dropdown when hovering over the trigger */
+.container:hover .sub-container {
+    display: block; /* Switch to 'block' to show the dropdown */
+}
+.sub-menu-item-button {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0%; 
+  height: 40px;
+  
+
+}
+
+.sub-menu-item-container {
+  padding: 0;
+}
+
+.drop-menu-select-standalone {
+  display: flex;
+  width: 200px;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0%; 
+  height: 50px;
+  margin: 10px;
+  align-items: center;
+justify-content: center;
+
+}
+
+
+
+
+
 

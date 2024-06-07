@@ -11,8 +11,10 @@ function SubMenu(props) {
     const containerItems =
         subList.map((element, index) => {
             return (
-            <li key={index}>
-                <Link to={element.path}>{element.name}</Link>
+            <li className="sub-menu-item-container" key={index}>
+                <Link to={element.path}>
+                    <button className="sub-menu-item-button">{element.name}</button>
+                </Link>
             </li>
             );
         })
@@ -26,7 +28,7 @@ function SubMenu(props) {
             <div className="sub-container"
                 onMouseEnter={() => setInContainer(true)}
                 onMouseLeave={() => { setInContainer(false); }}
-                style={{ visibility: (inDropdown || inContainer) ? "visible" : "hidden" }}>
+                style={{ display: (inDropdown || inContainer) ? "block" : "none" }}>
                 <ul>{containerItems}</ul>
             </div>
         </div >
