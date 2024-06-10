@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DropDownContainer from '../DropDownContainer'
+import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 import EventCard from './EventCard.jsx';
 export default function Events() {
 

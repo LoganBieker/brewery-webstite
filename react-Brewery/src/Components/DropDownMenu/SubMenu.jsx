@@ -1,4 +1,4 @@
-import "./index.css"
+import '@/Components/DropDownMenu/DropDownMenu.css';
 import React, { useState } from "react";
 import propTypes from 'prop-types'
 import { Link } from 'react-router-dom';

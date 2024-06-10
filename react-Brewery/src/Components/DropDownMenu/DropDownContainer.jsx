@@ -1,7 +1,9 @@
 import React from "react";
-import SubMenu from "./SubMenu"
 import { Link } from 'react-router-dom';
-import HomeButton from "./HomeButton";
+
+import SubMenu from "@/Components/DropDownMenu/SubMenu"
+import HomeButton from "@/Components/DropDownMenu/HomeButton";
+import '@/Components/DropDownMenu/DropDownMenu.css';
 
 function DropDownContainer() {
     const aboutUsSection = [
@@ -10,13 +12,13 @@ function DropDownContainer() {
         { name: "Contact Us", path: "/ContactUs" },
     ]
 
-
     const ourBrewsSection = [
         { name: "OnTap", path: "/OnTap"},
         { name: "Beer", path: "/Beer"},
         { name: "Mead", path: "/Mead"},
         { name: "Other", path: "/Other"},
     ]
+
     return (
         <div className="dropdown-container">
             <HomeButton path='/..' name="Home"></HomeButton>

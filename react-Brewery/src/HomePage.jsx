@@ -1,5 +1,5 @@
-import DropDownContainer from './DropDownContainer'
-import HeroSection from './HeroSection/HeroSection'
+import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
+import HeroSection from '@/Components/HeroSection/HeroSection'
 export default function HomePage() {
 
 
