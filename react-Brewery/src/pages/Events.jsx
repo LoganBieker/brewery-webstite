@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
-import EventCard from './EventCard.jsx';
+import EventCard from '@/Components/EventCard/EventCard.jsx';
 export default function Events() {
 
     const [data, setData] = useState(null);

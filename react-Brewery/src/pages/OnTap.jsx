@@ -1,5 +1,5 @@
 
-import BrewCards from './BrewCards'
+import BrewCards from '@/Components/BrewCards/BrewCards'
 import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 export default function Mead() {
 

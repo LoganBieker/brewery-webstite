@@ -1,6 +1,6 @@
 
 import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
-import BrewCards from './BrewCards'
+import BrewCards from '@/Components/BrewCards/BrewCards'
 
 export default function Beer() {
 
