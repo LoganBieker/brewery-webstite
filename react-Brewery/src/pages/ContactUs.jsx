@@ -1,4 +1,4 @@
-import DropDownContainer from '../DropDownContainer'
+import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 import React, {useEffect, useState} from 'react';
 
 export default function ContactUs(){

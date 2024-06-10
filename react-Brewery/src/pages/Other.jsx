@@ -1,10 +1,10 @@
-
-import DropDownContainer from '../DropDownContainer'
+import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
+import BrewCards from '@/Components/BrewCards/BrewCards'
 export default function Other() {
     return(
         <>
         <DropDownContainer></DropDownContainer>
-        <div>Other</div>
+        <BrewCards brew_type="other"></BrewCards>
         </>
     );
 }
