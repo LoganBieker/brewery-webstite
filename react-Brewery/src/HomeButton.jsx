@@ -7,7 +7,7 @@ export default function HomeButton(prop) {
     return (
         <button className='home-button-container'>
             <Link to={prop.path}>
-                <img className="home-button-image" src='./src/assets/brewLogo.png' alt='Brew Logo'>
+                <img className="home-button-image" src='/brewLogo.png' alt='Brew Logo'>
                 </img>
             </Link>
         </button>

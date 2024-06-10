@@ -20,7 +20,7 @@ function SubMenu(props) {
         })
 
     return (
-        <div className="container">
+        <div className="sub-menu-container">
             <span className="drop-menu-select"
                 onMouseEnter={() => { setInDropdown(true) }}
                 onMouseLeave={() => { setInDropdown(false) }}

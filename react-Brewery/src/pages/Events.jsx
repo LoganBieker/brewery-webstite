@@ -53,12 +53,12 @@ export default function Events() {
                     return(<>
                             <h1>Past Events</h1>
                             <EventCard key={index} event={event}></EventCard>
-                            </>);
+                            </>)
                 }
                 return (<EventCard key={index} event={event}></EventCard>)
 
             })
-            };
+            }
         </div>
     );
 }

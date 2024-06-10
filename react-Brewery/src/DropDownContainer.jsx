@@ -17,16 +17,16 @@ function DropDownContainer() {
         { name: "Mead", path: "/Mead"},
         { name: "Other", path: "/Other"},
     ]
-
     return (
         <div className="dropdown-container">
             <HomeButton path='/..' name="Home"></HomeButton>
             <SubMenu containerName="About Us" containerItems={aboutUsSection}></SubMenu>
             <SubMenu containerName="Brews" containerItems={ourBrewsSection}></SubMenu>
             <Link to="/Events"><button className="drop-menu-select-standalone">Events</button></Link>
-
         </div>
     );
 }
 
 export default DropDownContainer;
+
+
