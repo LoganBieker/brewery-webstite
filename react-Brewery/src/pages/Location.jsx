@@ -1,4 +1,4 @@
-import LocationMap from "./LocationMap"
+import LocationMap from "@/Components/LocationMap/LocationMap"
 import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 
 export default function Location() {

@@ -8,7 +8,7 @@ import '@/Components/DropDownMenu/DropDownMenu.css';
 function DropDownContainer() {
     const aboutUsSection = [
         { name: "The Brewery", path: "/TheBrewery" },
-        { name: "Location", path: "/Location/Location" },
+        { name: "Location", path: "/Location" },
         { name: "Contact Us", path: "/ContactUs" },
     ]
 
