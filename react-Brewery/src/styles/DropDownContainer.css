@@ -1,0 +1,31 @@
+.drop-down-container-text {
+
+    width: 65vw;
+    margin-inline: auto;
+    font-size: 40px;
+    margin-bottom: 20px;
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    height: 75vh;
+}
+
+.image {
+    width: 30%;
+    height: 100%;
+    height: auto;
+    border-radius: 8px;
+}
