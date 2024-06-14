@@ -1,7 +1,60 @@
 .hero-section-container {
-    width: 100%;
-    height: 100px;
-    background-color: aqua;
-    color: brown;
+    height: 75vh;
+    background-color: #2D2E40;
+    background-image: url("./public/heroSectionPic.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
+.hero-section-header {
+    font-size: 100px;
+    /* Large and clear */
+    font-weight: bold;
+    /* Making the header bold */
+    color: #40c9c9;
+    margin-bottom: 10px;
+    /* Spacing between header and paragraph */
+    display: block;
+    max-width: fit-content;
+    margin-inline: auto;
+    text-shadow:
+        3px 3px 0px #000,
+        /* Multiple shadows for enhanced outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        5px 5px 10px rgba(0, 0, 0, 0.8);
+    /* Soft black drop shadow for depth */
+}
+
+/* Styling for paragraphs */
+.hero-section-subtext {
+    font-size: 40px;
+    /* Standard reading size */
+    line-height: 1.6;
+    /* Optimal line height for readability */
+    margin-bottom: 20px;
+    /* Spacing between paragraphs */
+    display: block;
+
+    color: #40c9c9;
+    margin-inline: auto;
+    max-width: fit-content;
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+    /* Soft black drop shadow for depth */
 }

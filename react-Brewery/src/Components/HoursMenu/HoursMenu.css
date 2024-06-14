@@ -1,41 +1,86 @@
 .hours-menu {
     display: flex;
+    margin-inline: auto;
     flex-direction: column;
-    justify-content: center;
-    width: 30%;
+    align-items: center;
+    /* Ensures content is centered horizontally */
+    width: 90%;
+    /* More responsive width */
     max-width: 500px;
-    border: solid;
+    padding: 20px;
+    /* Adds padding for a better layout */
+    border: 1px solid #ccc;
+    /* Subtle border color */
+    background-color: #2d2e40;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Adds shadow for depth */
 }
 
 .hours-menu-container {
     display: flex;
+    background-color: #2d2e40;
     flex-direction: row;
-    justify-content: center
+    justify-content: space-between;
+    /* Distributes space between children */
+    width: 100%;
+    /* Full width for better control */
 }
 
 .hours-menu-title {
-    background-color: aqua;
-    color: blue;
+    width: 100%;
+    /* Full width of the container */
+    margin-top: 0px;
+    padding: 10px 0;
+    /* Padding for better spacing */
+    background-color: #40c9c9;
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #ffffff;
+    /* Improved contrast with white text */
+    font-size: 24px;
+    /* Larger font size for the title */
+    font-weight: bold;
+    /* Makes the title bold */
+    border-radius: 5px;
+    /* Rounded corners for modern look */
 }
 
-.hours-menu-times {
-    justify-content: left;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 20px;
-}
-
+.hours-menu-times,
 .hours-menu-days {
-    justify-content: left;
     display: flex;
+    background-color: #2d2e40;
     flex-direction: column;
-    margin: 10px 20px
+    align-items: flex-start;
+    /* Aligns items to the start */
+    margin: 10px 20px;
+    width: 50%;
+    /* Defines width to manage space in row */
 }
 
-.hours-menu-time {
-    color: 0f0f0f;
+.hours-menu-time,
+.hours-menu-day {
+    font-size: 18px;
+    /* Uniform font size for readability */
+    color: #ffffff;
+    /* Dark gray for better readability */
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hours-menu-day {
-    color: ff00ff;
+    color: #40c9c9;
 }

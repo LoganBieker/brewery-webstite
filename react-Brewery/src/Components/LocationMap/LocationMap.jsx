@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet'
+import '@/Components/LocationMap/Location.css';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -16,7 +17,7 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 const LocationMap = () => {
-    const position = [39.27524, -76.61694]; // Example coordinates
+    const position = [39.27545, -76.6170]; // Example coordinates
     const markerRef = useRef(null);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const LocationMap = () => {
     }, []);
 
     return (
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div className='map-container'> 
             <MapContainer center={position} zoom={16} style={{ height: '100%', width: '100%' }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
