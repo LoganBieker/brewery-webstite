@@ -1,0 +1,44 @@
+.location-text {
+    width: 65vw;
+    margin-inline: auto;
+    font-size: 40px;
+    margin-bottom: 20px;
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.location-address {
+    max-width: 400px;
+    /* Restrict the maximum width of the div */
+    padding: 20px;
+    /* Add some padding inside the div */
+    margin: 20px auto;
+    /* Center the div horizontally */
+    background-color: #373742;
+
+    /* Light grey background */
+    border-left: 5px solid #40c9c9;
+    /* A blue left border for a touch of style */
+    font-family: 'Arial', sans-serif;
+    /* Use a clean, readable font */
+    color: #ffffff;
+    /* Dark grey text color for readability */
+
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow to lift the div off the page */
+    border-radius: 8px;
+    /* Rounded corners */
+}
+.location-address-head {
+    font-size: 1.5em;
+    color: #40c9c9;
+
+
+}
