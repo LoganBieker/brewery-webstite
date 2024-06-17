@@ -1,8 +1,10 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 const path = require('path');
+
 const eventsManager = require('./eventsManager.js')
 const sqlServerConnection = require('./sqlServerConnection.js')
 app.use(cors());
@@ -23,6 +25,12 @@ function main() {
         console.log(`server is running on http:://localhost:${PORT}`);
     });
 
+    app.post('/api/ContactUs', (req, res) => {
+        console.log('Recived data from feedback section: ', req.body);
+        storeObject(req.body);
+        res.status(200).send('Data received successfully!');
+    })
+
     app.get('/api/data', (req, res) => {
             initializeEvents()
                 .then(data => {
@@ -39,6 +47,15 @@ function main() {
     // gets brew info from database
     sqlServerConnection.getSQLData(app);
     //sqlServerConnection()
+
+
+    const feedbackFileName = 'feedback.json'
+    const storeObject = (data) => {
+        fs.appendFile(feedbackFileName ,JSON.stringify(data) + "\r\n", function (err) {
+            if (err) throw err;
+            console.log(`Appended feedback to ${feedbackFileName}`);
+        })
+    }
 }
 
 main()

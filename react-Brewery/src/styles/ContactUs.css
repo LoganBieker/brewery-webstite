@@ -1,0 +1,90 @@
+.contact-us-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto; /* Centering the container horizontally */
+    width: 80%;
+    padding: 20px; /* Adds some spacing inside the container */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #565766;
+}
+
+.contact-us-name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Ensures space distribution between children */
+    margin-bottom: 20px; /* Space below this container */
+    width: 96%;
+    margin-inline: auto;
+}
+
+.contact-us-name,
+.contact-us-email {
+    border: none; /* Removes the default border */
+    border-bottom: 2px solid #ccc; /* Only underline */
+    background-color: transparent; /* No background color */
+    display: inline-block; /* Ensures the input behaves like a block but can be in line */
+}
+
+.contact-us-name {
+    width: 48%;
+}
+
+.message-container {
+    display: inline-block;
+    margin-inline: auto;
+    padding: 10px ;
+    width: 96%;
+    border-bottom: 2px solid #ccc; /* Only underline */
+    background-color: transparent;
+
+}
+
+.message-text-area {
+    width: 100%;
+    height: 100px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 2.5em;
+}
+
+.message-text {
+    font-size: 2em;
+    cursor: default;
+}
+
+.contact-us-email {
+    width: 96%; /* Takes nearly full width of its container */
+    margin: 0 auto; /* Center aligns it within the container */
+    margin-bottom: 20px; /* Margin bottom for spacing before the next element */
+}
+
+input[type="text"],
+input[type="email"],
+.contact-us-message
+{
+    width: 100%; /* Ensures the input field stretches to the container's width */
+    height: 40px; /* Increases the height for a bigger clickable area */
+    box-sizing: border-box; /* Includes padding and border in the height calculation */
+
+}
+
+input[type="submit"] {
+    width: 50%; /* Makes the submit button moderately wide */
+    padding: 12px; /* Comfortable clicking area */
+
+    background-color: #319898;
+    color: white; /* Text color for the button */
+    border: none; /* No border for a modern look */
+    border-radius: 4px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 10px auto; /* Centers button and adds space around it */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+input[type="submit"]:hover {
+
+    background-color: #40c9c9;
+}
+
