@@ -1,0 +1,86 @@
+.events-header {
+    color: #40c9c9;
+    display: flex;
+    background-color: #1b1b26;
+    outline: 3px solid #40c9c9;
+    width: 80%;
+    margin-inline: auto;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+
+}
+
+.event-card {
+    width: 50vw;
+    background-color: #242433;
+    height: 60vh;
+    margin-inline: auto;
+    outline: 3px solid #40c9c9;
+    border-radius: 10px;
+}
+
+.event-title {
+    padding-top: 20px;
+    color: #40c9c9;
+    text-align: center;
+
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.event-date {
+    text-align: center;
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+
+
+}
+
+.event-description {
+    text-align: center;
+    font-size: 1.4rem;
+    width: 80%;
+    margin-inline: auto;
+
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+
+.event-text-container {
+    background-color: #1b1b26a0;
+}

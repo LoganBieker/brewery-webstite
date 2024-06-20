@@ -16,6 +16,9 @@
 .brew-name {
     margin-left: 5%;
     color: #40c9c9;
+    margin-bottom: 0px;
+
+
 }
 
 .brew-text-container {
@@ -26,5 +29,16 @@
 .brew-word-style {
     color: #40c9c9;
     font-size: 1.2em;
+    margin-top: 10px;
     font-weight: bold;
+}
+
+.event-text-container {
+    background-color: #1b1b2680;
+}
+
+.event-image {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
 }

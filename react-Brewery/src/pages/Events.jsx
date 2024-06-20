@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 import EventCard from '@/Components/EventCard/EventCard.jsx';
+import '@/styles/Events.css'
+
 export default function Events() {
 
     const [data, setData] = useState(null);
@@ -44,14 +46,13 @@ export default function Events() {
     return (
         <div>
             <DropDownContainer></DropDownContainer>            
-            <h1>Upcoming Events</h1>
+            <h1 className='events-header'>Upcoming Events</h1>
             {data.map((event, index) => {
                 const eventDate = new Date(event.Dates);
                 if (eventDate < currentDate && !eventsExpired) {
                     eventsExpired = true;
-                    <div>Past Events</div>
                     return(<>
-                            <h1>Past Events</h1>
+                            <h1 className='events-header'>Past Events</h1>
                             <EventCard key={index} event={event}></EventCard>
                             </>)
                 }

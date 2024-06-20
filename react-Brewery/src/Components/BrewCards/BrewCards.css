@@ -17,6 +17,16 @@
     align-items: center;
     margin: 0;
     border-radius: 1px;
+
+    text-shadow:
+        2px 2px 0px #000,
+        /* Creating a sharp outline effect */
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        2px 2px 8px rgba(0, 0, 0, 0.7);
+
 }
 
 .brew-card-container {
