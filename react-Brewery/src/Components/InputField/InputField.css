@@ -1,0 +1,12 @@
+.input-field-input {
+    margin: 0 0;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+}
+
+.input-field-text {
+    font-size: 2em;
+    cursor: default;
+}

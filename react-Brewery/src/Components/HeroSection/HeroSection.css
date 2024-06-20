@@ -1,7 +1,7 @@
 .hero-section-container {
     height: 75vh;
     background-color: #2D2E40;
-    background-image: url("./public/heroSectionPic.jpg");
+    background-image: url("/heroSectionPic.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

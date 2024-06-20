@@ -1,10 +1,20 @@
-.drop-down-container-text {
+
+.the-brewery-container {
 
     width: 65vw;
+    display: flex;
     margin-inline: auto;
-    font-size: 40px;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    background-color: #565766;
+    cursor: default;
+}
 
+.the-brewery-text {
+    text-align: center;
+    font-size: 40px;
+    width: 60vw;
     text-shadow:
         2px 2px 0px #000,
         /* Creating a sharp outline effect */
@@ -15,6 +25,17 @@
         2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
+.text-blue {
+    color: #40c9c9;
+}
+
+.text-purple {
+    color: #241773;
+}
+
+.text-orange {
+    color: #DF4601
+}
 .image-container {
     display: flex;
     justify-content: space-around;
@@ -26,6 +47,5 @@
 .image {
     width: 30%;
     height: 100%;
-    height: auto;
     border-radius: 8px;
 }
