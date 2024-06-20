@@ -14,9 +14,9 @@ export default function TheBrewery() {
                 </div>
             </div >
             <div className='image-container'>
-                <img className='image' src='./public/fridge2.jpg' alt='Setup Image'></img>
-                <img className='image' src='./public/house.jpg' alt='House Imgage'></img>
-                <img className='image' src='./public/game1.jpg'></img>
+                <img className='image' src='/fridge2.jpg' alt='Setup Image'></img>
+                <img className='image' src='/house.jpg' alt='House Imgage'></img>
+                <img className='image' src='/game1.jpg'></img>
             </div>
         </>
     );

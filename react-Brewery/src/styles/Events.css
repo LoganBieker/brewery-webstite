@@ -32,6 +32,11 @@
     border-radius: 10px;
 }
 
+
+.event-card:last-child {
+    margin-bottom: 10px;
+}
+
 .event-title {
     padding-top: 20px;
     color: #40c9c9;
@@ -77,6 +82,8 @@
         -1px 1px 0px #000,
         1px 1px 0px #000,
         2px 2px 8px rgba(0, 0, 0, 0.7);
+
+        padding-bottom: 5px;
 }
 
 

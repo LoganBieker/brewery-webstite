@@ -2,8 +2,6 @@ import '@/Components/BrewCard/BrewCard.css'
 export default function BrewCard({ brew }) {
     const imgLocation = './public/BrewImages/'
 
-    console.log(brew)
-    console.log(imgLocation + brew.brew_image);
     return (
 
         <div className='brew-card'>

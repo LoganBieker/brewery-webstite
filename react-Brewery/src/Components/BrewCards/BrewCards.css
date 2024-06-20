@@ -10,13 +10,13 @@
     color: #40c9c9;
     display: flex;
     background-color: #1b1b26;
-    outline: 3px solid #40c9c9;
+    border: 3px solid #40c9c9;
+    border-radius: 20px;
     width: 100%;
     height: 80px;
     justify-content: center;
     align-items: center;
     margin: 0;
-    border-radius: 1px;
 
     text-shadow:
         2px 2px 0px #000,
@@ -33,7 +33,6 @@
     display: flex;
     flex-direction: row;
 
-    outline: 3px solid #40c9c9;
     background-color: #2D2E40;
 }
 

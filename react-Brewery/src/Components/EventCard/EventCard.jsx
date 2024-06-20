@@ -2,7 +2,7 @@ import React from "react"
 
 
 export default function eventCards({ event }) {
-    const baseDir = './public/eventImages/'
+    const baseDir = '/eventImages/'
     const styleImageUrl = {
         position: 'relative',
         backgroundImage: `url(${baseDir + event.Image})`, /* Replace with your image path */
