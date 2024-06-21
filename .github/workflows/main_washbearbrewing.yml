@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: cd to correct dir
-        run : cd ../myBrewery/react-Brewery
+      - name: display path
+        run : ls -alh
 
       - name: npm install, build, and test
         run: |
