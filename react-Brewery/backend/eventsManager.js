@@ -12,7 +12,28 @@ class eventsManager {
         await this.#findFiles();
         this.#handleRecurring(this.data);
         this.#sortByDate(this.data);
-        return this.data;
+        const verData = this.#eventVerify(this.data);
+        //console.log(verData);
+        return verData;
+        //return this.data;
+    }
+
+    // seems when computer is running out of resources it will do additanl reads. Cleaning these artifacts. 
+    #eventVerify(unverifedData) {
+        const eventSeen = new Set();
+        const verifiedData = [];
+        for (let i = 0; i < unverifedData.length; i++) {
+            // Dont want to show event if data is wrong
+            if (unverifedData[i].Dates === 'Invalid Date') {
+                continue;
+            }
+            if (!eventSeen.has(unverifedData[i].Event)) {
+                eventSeen.add(unverifedData[i].Event);
+                verifiedData.push(unverifedData[i]);
+            }
+        }
+        //console.log("Verified data :", verifiedData.length, " Unverifed Data :", unverifedData.length);
+        return verifiedData;
     }
 
     async #findFiles() {

@@ -12,12 +12,13 @@ app.use(express.json());
 
 function main() {
     const eventsDir = path.join(__dirname, 'events');
-    const m_eventMgr = new eventsManager(eventsDir);
 
     let eventData = null;
 
     async function initializeEvents() {
+        const m_eventMgr = new eventsManager(eventsDir);
         const events = await m_eventMgr.getEventObject();
+        delete m_eventMgr;
         return events
     }
 

@@ -9,7 +9,6 @@ export default function eventCards({ event }) {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
     }
-    console.log(baseDir + event.Image);
     return (
         <div className="event-card" style={styleImageUrl}>
             <div className="event-text-container">
