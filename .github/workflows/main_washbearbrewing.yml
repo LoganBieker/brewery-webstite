@@ -22,7 +22,9 @@ jobs:
           node-version: '20.x'
 
       - name: display path
-        run : ls -alh
+        run: |
+          cd react-Brewery
+          ls -alh
 
       - name: npm install, build, and test
         run: |
