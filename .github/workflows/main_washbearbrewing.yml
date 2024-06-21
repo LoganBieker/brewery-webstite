@@ -15,10 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Change to specific directory and list
         run: |
-          cd myBrewery/react-Brewery
+          cd /home/runner/work/myBrewery/react-Brewery
           pwd
           ls -alh
 
