@@ -16,7 +16,6 @@ function main() {
     let eventData = null;
 
     async function initializeEvents() {
-
         const m_eventMgr = new eventsManager(eventsDir);
         const events = await m_eventMgr.getEventObject();
         delete m_eventMgr;

@@ -23,6 +23,7 @@ class eventsManager {
         const eventSeen = new Set();
         const verifiedData = [];
         for (let i = 0; i < unverifedData.length; i++) {
+            // Dont want to show event if data is wrong
             if (unverifedData[i].Dates === 'Invalid Date') {
                 continue;
             }
@@ -31,7 +32,7 @@ class eventsManager {
                 verifiedData.push(unverifedData[i]);
             }
         }
-        console.log("Verified data :", verifiedData.length, " Unverifed Data :", unverifedData.length);
+        //console.log("Verified data :", verifiedData.length, " Unverifed Data :", unverifedData.length);
         return verifiedData;
     }
 
