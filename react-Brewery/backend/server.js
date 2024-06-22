@@ -5,10 +5,12 @@ const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 const path = require('path');
 
+
 const eventsManager = require('./eventsManager.js')
 const sqlServerConnection = require('./sqlServerConnection.js')
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 function main() {
     const eventsDir = path.join(__dirname, 'events');

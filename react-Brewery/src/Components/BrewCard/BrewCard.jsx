@@ -1,6 +1,6 @@
 import '@/Components/BrewCard/BrewCard.css'
 export default function BrewCard({ brew }) {
-    const imgLocation = './public/BrewImages/'
+    const imgLocation = '/brewImages/'
 
     return (
 
