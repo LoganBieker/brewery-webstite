@@ -40,7 +40,10 @@ export default function brewCards(prop) {
     }, []);
 
     if (loading) {
-        return ("Loading data from database")
+        return (
+            <div className='error-message-container'>
+                <div className='error-message'>Loading data from database</div>
+            </div>)
     }
 
 
@@ -71,7 +74,7 @@ export default function brewCards(prop) {
     if (isError || data === null) {
         return (
             <div className='error-message-container'>
-                <h1 className='error-message'>Sorry No Brews on Tap Here</h1>
+                <h1 className='error-message'>Sorry No Brews on Tap Here, Try Again Later.</h1>
             </div>
         )
     } else {

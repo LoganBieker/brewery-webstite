@@ -75,7 +75,7 @@ class eventsManager {
                         eventDate.setDate(eventDate.getDate() + 7);
                     }
 
-                    event.Dates = eventDate.toString();
+                    //event.Dates = eventDate.toString();
                     //console.log(event);
                     break;
 
@@ -89,7 +89,7 @@ class eventsManager {
                         eventDate.setDate(eventDate.getDate() + 1);
                     }
 
-                    event.Dates = eventDate.toString();
+                    //event.Dates = eventDate.toString();
                     //console.log(eventDate.toString())
                     //console.log(event);
                     break;
@@ -100,6 +100,7 @@ class eventsManager {
                 default:
                     break;
             }
+            event.Dates = eventDate.toUTCString();
             //event.Time = eventDate.toTimeString;
             //console.log(event.Event + " PostAdjusted Date: " + eventDate);
         })

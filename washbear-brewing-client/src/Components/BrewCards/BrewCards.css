@@ -31,8 +31,7 @@
 
 .brew-card-container {
     display: flex;
-    flex-direction: row;
-
+    flex-wrap: wrap;
     background-color: #2D2E40;
 }
 
@@ -66,4 +65,6 @@
 
 .error-message {
     text-align: center;
+   font-size: 1.3rem; 
+    margin: 5px;
 }

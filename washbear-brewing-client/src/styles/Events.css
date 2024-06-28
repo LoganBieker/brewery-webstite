@@ -91,3 +91,21 @@
 .event-text-container {
     background-color: #1b1b26a0;
 }
+
+
+.error-message-container {
+    width: 60vw;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1b1b26;
+    border-radius: 10px;
+    outline: 3px solid #40c9c9;
+}
+
+.error-message {
+    text-align: center;
+   font-size: 1.3rem; 
+    margin: 5px;
+}
