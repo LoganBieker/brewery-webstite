@@ -1,0 +1,7 @@
+services:
+  web:
+    image: loganbieker/washbear-brewing-client:1.3
+    environment:
+      - VITE_APP_URL=http://localhost:3001/api
+    ports:
+      - "5001:80"

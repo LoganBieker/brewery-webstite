@@ -9,5 +9,8 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),  // Sets '@' as an alias to the 'src' directory
     }
+  },
+  define: {
+    'process.env': process.env
   }
 });

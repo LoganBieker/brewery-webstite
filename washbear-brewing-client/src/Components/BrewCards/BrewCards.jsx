@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '@/Components/BrewCard/BrewCard.jsx'
 import '@/Components/BrewCards/BrewCards.css'
 import BrewCard from '../BrewCard/BrewCard';
-
+const apiUrl = window.__env.VITE_APP_URL || import.meta.env.VITE_APP_URL;
 export default function brewCards(prop) {
 
 
@@ -12,13 +12,9 @@ export default function brewCards(prop) {
 
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/brews')
-            .then(response => {
-                console.log(response);
-            })
 
-
-        fetch(`http://localhost:3001/api/brews?type=${prop.brew_type}`)
+        //fetch(import.meta.env.VITE_APP_URL + '/data')
+        fetch(apiUrl + `/brews?type=${prop.brew_type}`)
             .then(response => {
                 if (!response.ok) {
                     setIsError(true)
@@ -48,16 +44,18 @@ export default function brewCards(prop) {
 
 
     function createStructure(data) {
-        if (!data.length) {
+        if (!data) {
             return (<></>);
         }
 
         return (
-            <div className='brew-card-container'>
-                {data.map((brew, index) => {
-                    return (<BrewCard brew={brew}></BrewCard>);
-                })}
-            </div>
+            <>
+                <div className='brew-card-container'>
+                    {data.map((brew, index) => {
+                        return (<BrewCard brew={brew}></BrewCard>);
+                    })}
+                </div>
+            </>
         )
     }
 
@@ -68,8 +66,19 @@ export default function brewCards(prop) {
             )
         }
     }
-    //console.log(data);
-    let addedPastBrewsDiv = false;
+
+
+    function addCurrentBrewsDiv(data) {
+        const divCheck = data.filter((data) => data.brew_avalibility === 1);
+        if (divCheck.length) {
+            console.log(divCheck)
+            return (
+                <h1 className='brew-header'>Currently on tap</h1>
+            )
+        } else {
+            return(<></>)
+        }
+    }
 
     if (isError || data === null) {
         return (
@@ -80,7 +89,8 @@ export default function brewCards(prop) {
     } else {
         return (
             <div className='brew-container'>
-                <h1 className='brew-header'>Currently on tap</h1>
+
+                {addCurrentBrewsDiv(data)}
                 {createStructure(data.filter((data) => data.brew_avalibility === 1))}
                 {addPreviousBrewsDiv(data)}
                 {createStructure(data.filter((data) => data.brew_avalibility === 0))}
