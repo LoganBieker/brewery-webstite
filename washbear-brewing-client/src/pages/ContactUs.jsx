@@ -34,7 +34,7 @@ export default function ContactUs() {
     }
 
     const sendData = (data) => {
-        fetch('http://localhost:3001/api/ContactUs', {
+        fetch(import.meta.env.VITE_APP_URL + '/api/ContactUs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

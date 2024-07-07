@@ -1,14 +1,21 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const PORT = process.env.PORT || 8080;
+const apiUrl =  process.env.APP_URL || "https//localhost";
+const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 const path = require('path');
 
 
+// Enable CORS for all routes
+app.use(cors({
+    origin: '*', // Allow all origins (you can restrict this to your frontend's origin)
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+}));
 const eventsManager = require('./eventsManager.js')
 const sqlServerConnection = require('./sqlServerConnection.js')
-app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -25,7 +32,7 @@ function main() {
     }
 
     app.listen(PORT, () => {
-        console.log(`server is running on http:://localhost:${PORT}`);
+        console.log(`server is running on ${apiUrl}:${PORT}`);
     });
 
     app.post('/api/ContactUs', (req, res) => {

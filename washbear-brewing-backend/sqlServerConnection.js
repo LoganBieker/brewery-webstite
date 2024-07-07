@@ -1,36 +1,47 @@
 //const express = require('express');
-const mysql = require('mysql2/promise');
+//const mysql = require('mysql2/promise');
 //const cors = require('cors');
+const sql = require('mssql');
+require('dotenv').config();
 //const app = express();
 
 //app.use(cors());
 //app.use(express.json());
 
 const config = {
-    user: 'root',
-    password: 'password',
-    host: 'localhost',
-    database: 'mydb',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_DATABASE,
+    options: {
+        encrypt: true,
+        enableArithAbort: true,
+    } 
 }
 module.exports = {
     getSQLData: async function getSQLData(app) {
+        console.log(config);
+
         try {
-            const connection = await mysql.createConnection(config);
-            console.log("Connected to MySQL server");
+            await sql.connect(config);
+            console.log("Connected to MsSQL server");
 
             app.get('/api/brews', async (req, res) => {
                 try {
                     console.log("Attempt to pull data")
                     const { type } = req.query;
-                    let results, fields;
+                    const request = new sql.Request();
+                    request.input('type', sql.VarChar, type);
+                    let query;
+
                     if (type === "availble") {
-                        
-                        [results, fields] = await connection.execute(`SELECT * FROM brews where brew_avalibility=1 order by brew_avalibility desc, brew_popularity desc, brew_name;`);
+                        query = `SELECT * FROM brewlist where brew_avalibility=1 order by brew_avalibility desc, brew_popularity desc, brew_name;`;
                     } else {
-                        [results, fields] = await connection.execute(`SELECT * FROM brews where brew_type="${type}" order by brew_avalibility desc, brew_popularity desc, brew_name;`);
+                        query = `SELECT * FROM brewlist where brew_type= @type order by brew_avalibility desc, brew_popularity desc, brew_name;`;
                     }
-                    
-                    
+
+                    let results = await request.query(query);
+
                     //console.log("Query Results:", results);
                     // Verify that data was collected 
                     if (results.length === 0) {
@@ -38,7 +49,8 @@ module.exports = {
                         res.status(404).json({ message: "No data found" })
                     } else {
                         console.log("Brew data has been successfully Collected")
-                        res.json(results);
+                        //console.log(results)
+                        res.json(results.recordset);
                     }
 
 

@@ -3,13 +3,14 @@ import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 import EventCard from '@/Components/EventCard/EventCard.jsx';
 import '@/styles/Events.css'
 
+const apiUrl = import.meta.env.VITE_APP_URL || window.__env.VITE_APP_URL;
 export default function Events() {
-
+    console.log("pulling data from ", apiUrl);
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isError, setIsError] = useState(false); 
+    const [isError, setIsError] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:3001/api/data')
+        fetch(apiUrl + '/api/data')
             .then(response => response.json())
             .then(data => {
                 setData(data);
@@ -25,36 +26,41 @@ export default function Events() {
 
     if (loading) {
         return (
-        <>
-        <DropDownContainer></DropDownContainer>
-        <div>Loading data...</div>
-        </>
-    )}
+            <>
+                <DropDownContainer></DropDownContainer>
+                <div className='error-message-container'>
+                    <div className='error-message'>Loading data...</div>
+                </div>
+            </>
+        )
+    }
 
 
     const currentDate = new Date()
     let eventsExpired = false;
-    
+
     if (!data | isError) {
-        return(
+        return (
             <>
-            <DropDownContainer></DropDownContainer>
-            <h1>Sorry No Upcoming Events</h1>
+                <DropDownContainer></DropDownContainer>
+                <div className='error-message-container'>
+                    <h1 className='error-message'>Sorry No Upcoming Events, Try Again Later.</h1>
+                </div>
             </>
         )
     }
     return (
         <div>
-            <DropDownContainer></DropDownContainer>            
+            <DropDownContainer></DropDownContainer>
             <h1 className='events-header'>Upcoming Events</h1>
             {data.map((event, index) => {
                 const eventDate = new Date(event.Dates);
                 if (eventDate < currentDate && !eventsExpired) {
                     eventsExpired = true;
-                    return(<>
-                            <h1 className='events-header'>Past Events</h1>
-                            <EventCard key={index} event={event}></EventCard>
-                            </>)
+                    return (<>
+                        <h1 className='events-header'>Past Events</h1>
+                        <EventCard key={index} event={event}></EventCard>
+                    </>)
                 }
                 return (<EventCard key={index} event={event}></EventCard>)
 
