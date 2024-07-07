@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '@/Components/BrewCard/BrewCard.jsx'
 import '@/Components/BrewCards/BrewCards.css'
 import BrewCard from '../BrewCard/BrewCard';
-const apiUrl = window.__env.VITE_APP_URL || import.meta.env.VITE_APP_URL;
+const apiUrl = import.meta.env.VITE_APP_URL || window.__env.VITE_APP_URL;
 export default function brewCards(prop) {
 
 
@@ -14,7 +14,7 @@ export default function brewCards(prop) {
     useEffect(() => {
 
         //fetch(import.meta.env.VITE_APP_URL + '/data')
-        fetch(apiUrl + `/brews?type=${prop.brew_type}`)
+        fetch(apiUrl + `/api/brews?type=${prop.brew_type}`)
             .then(response => {
                 if (!response.ok) {
                     setIsError(true)

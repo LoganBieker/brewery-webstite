@@ -3,14 +3,14 @@ import DropDownContainer from '@/Components/DropDownMenu/DropDownContainer'
 import EventCard from '@/Components/EventCard/EventCard.jsx';
 import '@/styles/Events.css'
 
-const apiUrl = window.__env.VITE_APP_URL || import.meta.env.VITE_APP_URL;
+const apiUrl = import.meta.env.VITE_APP_URL || window.__env.VITE_APP_URL;
 export default function Events() {
-    console.log(window.__env.VITE_API_URL)
+    console.log("pulling data from ", apiUrl);
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     useEffect(() => {
-        fetch(apiUrl + '/data')
+        fetch(apiUrl + '/api/data')
             .then(response => response.json())
             .then(data => {
                 setData(data);
