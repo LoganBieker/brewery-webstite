@@ -16,64 +16,61 @@ const config = {
     options: {
         encrypt: true,
         enableArithAbort: true,
-    } 
+    },
+    pool: {
+        max: 10, // maximum number of connections in the pool
+        min: 0, // minimum number of connections in the pool
+        idleTimeoutMillis: 30000, // time a connection can remain idle before being closed
+        acquireTimeoutMillis: 30000, // time the pool will wait for a connection to become available before throwing an error
+        createTimeoutMillis: 30000 // time the pool will wait for a new connection to be created before throwing an error
+    }
 }
-module.exports = {
-    getSQLData: async function getSQLData(app) {
-        console.log(config);
 
+module.exports = {
+    connectToDatabase: async function connectToDatabase() {
         try {
             await sql.connect(config);
-            console.log("Connected to MsSQL server");
-
-            app.get('/api/brews', async (req, res) => {
-                try {
-                    console.log("Attempt to pull data")
-                    const { type } = req.query;
-                    const request = new sql.Request();
-                    request.input('type', sql.VarChar, type);
-                    let query;
-
-                    if (type === "availble") {
-                        query = `SELECT * FROM brewlist where brew_avalibility=1 order by brew_avalibility desc, brew_popularity desc, brew_name;`;
-                    } else {
-                        query = `SELECT * FROM brewlist where brew_type= @type order by brew_avalibility desc, brew_popularity desc, brew_name;`;
-                    }
-
-                    let results = await request.query(query);
-
-                    //console.log("Query Results:", results);
-                    // Verify that data was collected 
-                    if (results.length === 0) {
-                        console.log("No data found")
-                        res.status(404).json({ message: "No data found" })
-                    } else {
-                        console.log("Brew data has been successfully Collected")
-                        //console.log(results)
-                        res.json(results.recordset);
-                    }
-
-
-                } catch (err) {
-                    console.error('Error executing query:', err);
-                    res.status(500).send(err.message);
-                }
-            });
-
-            //const PORT = process.env.PORT || 3001;
-            //app.listen(PORT, () => {
-            ///    console.log(`Server running on port ${PORT}`);
-            //});
-
+            console.log("Connected to MsSql Database");
         } catch (err) {
-            console.error('Error connecting to MySQL server:', err);
+            console.error("Failed to connect to MsSQL server", err);
+            throw err;
         }
+
     },
 
-    test: function test(app) {
-        console.log("TEST")
-        app.get('/api/brews', (req, res) => {
-            res.json("This is test data")
-        })
-    }
+    getSQLData: async function getSQLData(app) {
+        app.get('/api/brews', async (req, res) => {
+            try {
+                console.log("Attempt to pull data")
+                const { type } = req.query;
+                const request = new sql.Request();
+                request.input('type', sql.VarChar, type);
+                let query;
+
+                if (type === "availble") {
+                    query = `SELECT * FROM brewlist where brew_avalibility=1 order by brew_avalibility desc, brew_popularity desc, brew_name;`;
+                } else {
+                    query = `SELECT * FROM brewlist where brew_type= @type order by brew_avalibility desc, brew_popularity desc, brew_name;`;
+                }
+
+                let results = await request.query(query);
+
+                //console.log("Query Results:", results);
+                // Verify that data was collected 
+                if (results.length === 0) {
+                    console.log("No data found")
+                    res.status(404).json({ message: "No data found" })
+                } else {
+                    console.log("Brew data has been successfully Collected")
+                    //console.log(results)
+                    res.json(results.recordset);
+                }
+
+
+            } catch (err) {
+                console.error('Error executing query:', err);
+                res.status(500).send(err.message);
+            }
+        });
+    },
 }

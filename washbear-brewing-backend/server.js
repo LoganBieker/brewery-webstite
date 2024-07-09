@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const apiUrl =  process.env.APP_URL || "https//localhost";
+const apiUrl = process.env.APP_URL || "https//localhost";
 const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 const path = require('path');
@@ -20,8 +20,16 @@ app.use(express.json());
 app.use(express.static('public'));
 
 function main() {
-    const eventsDir = path.join(__dirname, 'events');
 
+    async function startServer() {
+        await sqlServerConnection.connectToDatabase();
+        app.listen(PORT, () => {
+            console.log(`server is running on ${apiUrl}:${PORT}`);
+        });
+    }
+    startServer(); 
+
+    const eventsDir = path.join(__dirname, 'events');
     let eventData = null;
 
     async function initializeEvents() {
@@ -30,11 +38,8 @@ function main() {
         delete m_eventMgr;
         return events
     }
-
-    app.listen(PORT, () => {
-        console.log(`server is running on ${apiUrl}:${PORT}`);
-    });
-
+    
+    sqlServerConnection.getSQLData(app);
     app.post('/api/ContactUs', (req, res) => {
         console.log('Recived data from feedback section: ', req.body);
         storeObject(req.body);
@@ -42,26 +47,26 @@ function main() {
     })
 
     app.get('/api/data', (req, res) => {
-            initializeEvents()
-                .then(data => {
-                    eventData = data;
-                    console.log("Events data init and stored")
-                    res.json(eventData);
-                })
-                .catch(err => {
-                    console.log("Failed to init data")
-                    res.status(503).json({ error: "Data is not yet avilble. Please try again later" })
-                })
+        initializeEvents()
+            .then(data => {
+                eventData = data;
+                console.log("Events data init and stored")
+                res.json(eventData);
+            })
+            .catch(err => {
+                console.log("Failed to init data")
+                res.status(503).json({ error: "Data is not yet avilble. Please try again later" })
+            })
 
     });
     // gets brew info from database
-    sqlServerConnection.getSQLData(app);
+
     //sqlServerConnection()
 
 
     const feedbackFileName = 'feedback.json'
     const storeObject = (data) => {
-        fs.appendFile(feedbackFileName ,JSON.stringify(data) + "\r\n", function (err) {
+        fs.appendFile(feedbackFileName, JSON.stringify(data) + "\r\n", function (err) {
             if (err) throw err;
             console.log(`Appended feedback to ${feedbackFileName}`);
         })
